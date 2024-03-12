@@ -1,0 +1,11 @@
+- Instalar los paquetes path, sqflite y sqflite_common_ffi y sqflite_common_ffi_web.
+- Para habilitar sqflite, se debe ejecutar el comando : dart run sqflite_common_ffi_web:setup
+- Después de esto hay que crear una opción más si se quiere trabajar en web. En el main, se deben agregar las líneas:
+sqfliteFfiInit();
+databaseFactory = databaseFactoryFfi;
+ 
+- Crear el provider. 
+Este se va a encargar de inicializar la base de datos, crear las tablas y devolver el getter _database.
+Este último va a devolver el objeto database con el que se van a hacer los procesos en la base de datos. 
+
+Además, de esto, va a inicializar la base de datos. Para esto se necesita el método openDatabase, el cual recibe el path donde se va a almacenar la base de datos y luego, el método que se va a ejecutar cuando se inicialice la base de datos. En este debemos ejecutar código sql para crear las tablas
